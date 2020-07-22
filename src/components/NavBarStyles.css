@@ -1,0 +1,17 @@
+.navbar {
+  font-family: "Source Sans Pro", sans-serif;
+  color: white;
+  text-align: center;
+  font-weight: 300;
+  margin: 10px;
+}
+
+.active {
+  font-weight: italic;
+}
+
+.text {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+}
