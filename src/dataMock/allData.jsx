@@ -1,4 +1,4 @@
-const Mockdata = [
+const allData = [
   {
     Name: "Evelyn",
     Assignment: "SCRUM",
@@ -3361,4 +3361,4 @@ const Mockdata = [
   },
 ];
 
-export default Mockdata;
+export default allData;

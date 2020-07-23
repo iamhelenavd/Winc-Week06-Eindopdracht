@@ -1,27 +1,21 @@
 import React, { useState } from "react";
-
 import allData from "./dataMock/allData";
-import StudentList from "./components/StudentList";
-
-// import studentChart
-
-function Student() {}
+import { Link } from "react-router-dom";
 
 function Students() {
-  const [data, setData] = useState(allData); // leeg array
-  const studentNames = allData.map((id) => id.Name);
-  console.log(studentNames);
+  const [data, setData] = useState(allData);
+  console.log(data);
+  /*   setData(data[0].Name); */
+  /*   console.log(data.Name); */
 
-  // handle onchange
-
+  // nieuwe array met enkelen namen en vervolgens map hieronder
   return (
     <div class="text">
-      <h1>Students</h1>
-      <p>
-        Lorem ipsum is placeholder text commonly used in the graphic, print, and
-        publishing industries for previewing layouts and visual mockups.
-      </p>
-      <StudentList onChange={data} />
+      {data.map((props) => (
+        <h1 key={props.id}>
+          <Link to={`/Students/${props.Name}`}>{props.Name}</Link>
+        </h1>
+      ))}
     </div>
   );
 }
