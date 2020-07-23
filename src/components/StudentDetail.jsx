@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
-function StudentDetail() {
-  /*   const [item, setItem] = useState({}); */
+import OverviewChart from "./OverviewChart";
 
+function StudentDetail(props) {
   return (
     <div className="text">
-      <h1>Item</h1>
+      <h1>Student {props.Name} </h1>
+      <OverviewChart />
     </div>
   );
 }

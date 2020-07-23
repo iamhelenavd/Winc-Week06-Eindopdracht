@@ -1,11 +1,26 @@
-.navbar {
-  font-family: "Source Sans Pro", sans-serif;
-  color: white;
+.App {
   text-align: center;
+}
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background-color: white;
+  color: white;
+}
+
+.nav-links {
+  width: 40%;
+  font-family: "Source Sans Pro", sans-serif;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  color: white;
   font-weight: 300;
   margin: 10px;
 }
-
 .active {
   font-weight: italic;
 }
