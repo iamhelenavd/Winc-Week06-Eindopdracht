@@ -1,20 +1,11 @@
 import React from "react";
-
+import OverviewChart from "./components/OverviewChart";
 const Home = () => {
   return (
     <div>
       <div>
-        <table>
-          <tbody>
-            <tr className="song-header">
-              <th className="song-row__item">Test</th>
-              <th className="song-row__item">Test</th>
-              <th className="song-row__item">Test</th>
-              <th className="song-row__item">Test</th>
-              <th className="song-row__item">Test</th>
-            </tr>
-          </tbody>
-        </table>
+        <h1>example</h1>
+        <OverviewChart />
       </div>
     </div>
   );

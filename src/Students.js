@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+
+import allData from "./dataMock/allData";
+import StudentList from "./components/StudentList";
+
+// import studentChart
+
+function Student() {}
+
 function Students() {
+  const [data, setData] = useState(allData); // leeg array
+  const studentNames = allData.map((id) => id.Name);
+  console.log(studentNames);
+
+  // handle onchange
+
   return (
     <div class="text">
-      <h1>About</h1>
+      <h1>Students</h1>
       <p>
-        Momenteel volg ik de opleiding Front-End Developer bij Winc-Academy. Ik
-        heb een Single Page Application (SPA) gemaakt maken waarin je al je
-        favoriete lievelingsliedjes kan opslaan met een rating.
+        Lorem ipsum is placeholder text commonly used in the graphic, print, and
+        publishing industries for previewing layouts and visual mockups.
       </p>
+      <StudentList onChange={data} />
     </div>
   );
 }
