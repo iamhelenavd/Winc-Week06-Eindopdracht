@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 function Students(props) {
   const [data, setData] = useState(allData);
-
   // step 1 Array.from(new Set()) going to make a new set and I want to turn back in an array with Array.from
   // Step 2 new Set will only allow unique values in it
   // Step 3 .map(Name => [...]) run map function to return the actual data
