@@ -9,7 +9,7 @@ import {
   VictoryLine,
 } from "victory";
 
-function OverviewChart(props) {
+function DataDetailData(props) {
   const [data, setData] = useState(allData);
   // 1. All Assignments in Array
   const allAssignments = data.map((data) => data.Assignment);
@@ -26,7 +26,10 @@ function OverviewChart(props) {
 
   //console.log(objectStateData);
   // allen naar de studenten
-
+  const DataIndividualStudent = objectStateData.filter(
+    (item) => item.Name === props.newNames
+  );
+  //console.log(DataIndividualStudent);
   // 3. Function result FUN and Difficulty
   const getAverageResult = (Assignment, typeOfResult) => {
     const filterData = objectStateData
@@ -62,13 +65,13 @@ function OverviewChart(props) {
       >
         <VictoryGroup offset={5}>
           <VictoryBar
-            data={allStudentsRatingAverage}
+            data={DataIndividualStudent}
             x="Assignment"
             y="Difficulty"
             style={{ data: { fill: "#4768B8" } }}
           />
           <VictoryBar
-            data={allStudentsRatingAverage}
+            data={DataIndividualStudent}
             x="Assignment"
             y="Fun"
             style={{ data: { fill: "#B84768" } }}
@@ -158,4 +161,4 @@ function OverviewChart(props) {
   );
 }
 
-export default OverviewChart;
+export default DataDetailData;

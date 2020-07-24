@@ -1,11 +1,12 @@
 import React from "react";
-import OverviewChart from "./OverviewChart";
+import DataDetailData from "./DataDetailData";
 
 function StudentDetail(props) {
+  console.log(props); // let op altijd console.log kijken wat component
   return (
     <div className="text">
-      <h1>Student {props.Name} </h1>
-      <OverviewChart />
+      <h2>Student {props.match.params.id} </h2>
+      <DataDetailData newNames={props.match.params.id} />
     </div>
   );
 }
