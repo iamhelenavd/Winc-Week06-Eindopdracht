@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-
+import React from "react";
 import OverviewChart from "./OverviewChart";
 
 function StudentDetail(props) {

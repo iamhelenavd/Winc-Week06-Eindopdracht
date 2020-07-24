@@ -5,6 +5,7 @@ import {
   VictoryChart,
   VictoryAxis,
   VictoryGroup,
+  VictoryZoomContainer,
   VictoryLine,
   VictoryLabel,
 } from "victory";
@@ -31,7 +32,7 @@ function OverviewChart(props) {
       .map((result) => result[typeOfResult]);
     // Average
     const averageResult =
-      filterData.reduce((a, b) => a + b, 0) / filterData.length; // ex. const arrAvg = arr => arr.reduce((a,b) => a + b, 0) / arr.length
+      filterData.reduce((a, b) => a + b) / filterData.length; // ex. const arrAvg = arr => arr.reduce((a,b) => a + b, 0) / arr.length
     return averageResult;
   };
 
@@ -46,16 +47,26 @@ function OverviewChart(props) {
 
   return (
     <div>
-      <VictoryChart domainPadding={{ x: 5 }}>
+      <VictoryChart
+        domainPadding={{ y: 10 }}
+        containerComponent={
+          <VictoryZoomContainer
+            allowPan={true}
+            allowZoom={true}
+            zoomDomain={{ x: [0, 55] }}
+            zoomDimension="x"
+          />
+        }
+      >
         <VictoryGroup offset={5}>
           <VictoryBar
-            data={objectStateData}
+            data={allStudentsRatingAverage}
             x="Assignment"
             y="Difficulty"
             style={{ data: { fill: "#4768B8" } }}
           />
           <VictoryBar
-            data={objectStateData}
+            data={allStudentsRatingAverage}
             x="Assignment"
             y="Fun"
             style={{ data: { fill: "#B84768" } }}
@@ -67,7 +78,7 @@ function OverviewChart(props) {
           style={{
             tickLabels: {
               fontSize: 5,
-              padding: 40,
+              padding: 10,
               writingMode: "vertical-lr",
             },
           }}
