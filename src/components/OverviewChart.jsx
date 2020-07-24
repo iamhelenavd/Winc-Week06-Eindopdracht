@@ -11,8 +11,6 @@ import {
 
 function OverviewChart(props) {
   const [data, setData] = useState(allData);
-  /*   const [uniqueAssignment, setStateUniqueAssignment] = useState([]);
-   */
   // 1. All Assignments in Array
   const allAssignments = data.map((data) => data.Assignment);
   const allUniqueAssignments = [...new Set(allAssignments)];
@@ -26,18 +24,18 @@ function OverviewChart(props) {
     Fun: parseInt(object.Fun),
   }));
 
-  // 3. Functie scoren moeilijkheid en functie bepalen
+  // 3. Function result FUN and Difficulty
   const getAverageResult = (Assignment, typeOfResult) => {
     const filterData = objectStateData
       .filter((item) => item.Assignment === Assignment)
       .map((result) => result[typeOfResult]);
-    // Gemiddelde berekenen
+    // Average
     const averageResult =
-      filterData.reduce((a, b) => a + b, 0) / filterData.length; // voorbeeld const arrAvg = arr => arr.reduce((a,b) => a + b, 0) / arr.length
+      filterData.reduce((a, b) => a + b, 0) / filterData.length; // ex. const arrAvg = arr => arr.reduce((a,b) => a + b, 0) / arr.length
     return averageResult;
   };
 
-  //4. Data with Average score
+  //4. Data with Average result
   const allStudentsRatingAverage = allUniqueAssignments.map((Assignment) => ({
     Assignment: Assignment,
     Difficulty: getAverageResult(Assignment, "Difficulty"),
@@ -48,11 +46,7 @@ function OverviewChart(props) {
 
   return (
     <div>
-      <VictoryChart
-        // domainPadding will add space to each side of VictoryBar to
-        // prevent it from overlapping the axis
-        domainPadding={{ x: 5 }}
-      >
+      <VictoryChart domainPadding={{ x: 5 }}>
         <VictoryGroup offset={5}>
           <VictoryBar
             data={objectStateData}
@@ -68,8 +62,6 @@ function OverviewChart(props) {
           />
         </VictoryGroup>
         <VictoryAxis
-          // tickValues specifies both the number of ticks and where
-          // they are placed on the axis
           tickValues={[1, 2, 3, 4, 5]}
           tickFormat={props.Assignment}
           style={{
