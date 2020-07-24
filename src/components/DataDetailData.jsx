@@ -25,7 +25,7 @@ function DataDetailData(props) {
   }));
 
   //console.log(objectStateData);
-  // allen naar de studenten
+  // Students Individual for function StudentDetail.jsx
   const DataIndividualStudent = objectStateData.filter(
     (item) => item.Name === props.newNames
   );

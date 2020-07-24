@@ -6,8 +6,9 @@
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  background-color: white;
-  color: white;
+  background-color: #f5ba13;
+  color: #858585;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
 
 .nav-links {
@@ -17,7 +18,7 @@
   justify-content: space-around;
   align-items: center;
   list-style: none;
-  color: white;
+  color: #858585;
   font-weight: 300;
   margin: 10px;
 }
