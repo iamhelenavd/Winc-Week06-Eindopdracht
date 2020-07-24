@@ -100,35 +100,3 @@ function OverviewChart(props) {
 }
 
 export default OverviewChart;
-
-/*<div>
-<VictoryChart>
-  <VictoryScatter
-    y={(data) => Math.sin(2 * Math.PI * data.x)}
-    samples={25}
-    size={5}
-    style={{ data: { fill: "tomato" }}}
-  />
-  <VictoryLine
-    style={{ data: { stroke: "orange" }}}
-    y={(data) => Math.sin(2 * Math.PI * data.x)}
-  />
-  <VictoryAxis/>
-  <VictoryAxis dependentAxis/>
-</VictoryChart>
-
-<VictoryChart>
-  <VictoryAxis/>
-  <VictoryAxis dependentAxis/>
-  <VictoryLine
-    style={{ data: { stroke: "orange" }}}
-    y={(data) => Math.sin(2 * Math.PI * data.x)}
-  />
-  <VictoryScatter
-    y={(data) => Math.sin(2 * Math.PI * data.x)}
-    samples={25}
-    size={5}
-    style={{ data: { fill: "tomato" }}}
-  />
-</VictoryChart>
-</div>*/
