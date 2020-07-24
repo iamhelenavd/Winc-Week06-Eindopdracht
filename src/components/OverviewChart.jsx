@@ -1,56 +1,131 @@
-import React from "react";
-/* import allData from "./dataMock/allData"; */
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryGroup } from "victory";
-
-const data = [
-  { quarter: 1, earnings: 13000 },
-  { quarter: 2, earnings: 16500 },
-  { quarter: 3, earnings: 14250 },
-  { quarter: 4, earnings: 19000 },
-];
+import React, { useState } from "react";
+import allData from "../dataMock/allData";
+import {
+  VictoryBar,
+  VictoryChart,
+  VictoryAxis,
+  VictoryGroup,
+  VictoryLine,
+  VictoryLabel,
+} from "victory";
 
 function OverviewChart(props) {
+  const [data, setData] = useState(allData);
+  /*   const [uniqueAssignment, setStateUniqueAssignment] = useState([]);
+   */
+  // 1. All Assignments in Array
+  const allAssignments = data.map((data) => data.Assignment);
+  const allUniqueAssignments = [...new Set(allAssignments)];
+  // console.log(allUniqueAssignments);
+
+  // 2. Object of items
+  const objectStateData = data.map((object) => ({
+    Name: object.Name,
+    Assignment: object.Assignment,
+    Difficulty: parseInt(object.Difficulty), // The parseInt() function parses a string argument and returns an integer of the specified radix
+    Fun: parseInt(object.Fun),
+  }));
+
+  // 3. Functie scoren moeilijkheid en functie bepalen
+  const getAverageResult = (Assignment, typeOfResult) => {
+    const filterData = objectStateData
+      .filter((item) => item.Assignment === Assignment)
+      .map((result) => result[typeOfResult]);
+    // Gemiddelde berekenen
+    const averageResult =
+      filterData.reduce((a, b) => a + b, 0) / filterData.length; // voorbeeld const arrAvg = arr => arr.reduce((a,b) => a + b, 0) / arr.length
+    return averageResult;
+  };
+
+  //4. Data with Average score
+  const allStudentsRatingAverage = allUniqueAssignments.map((Assignment) => ({
+    Assignment: Assignment,
+    Difficulty: getAverageResult(Assignment, "Difficulty"),
+    Fun: getAverageResult(Assignment, "Fun"),
+  }));
+
+  console.log(allStudentsRatingAverage);
+
   return (
     <div>
       <VictoryChart
         // domainPadding will add space to each side of VictoryBar to
         // prevent it from overlapping the axis
-        domainPadding={20}
+        domainPadding={{ x: 5 }}
       >
-        <VictoryGroup offset={4} colorScale={"qualitative"}>
+        <VictoryGroup offset={5}>
           <VictoryBar
-            data={[
-              { x: 1, y: 1 },
-              { x: 2, y: 2 },
-              { x: 3, y: 5 },
-              { x: 4, y: 3 },
-            ]} //data{props.resultDifficulty}
-            //  x="assignment"
-            //   y="resultDifficulty"
-            style={{ data: { fill: "#FFFF" } }}
+            data={objectStateData}
+            x="Assignment"
+            y="Difficulty"
+            style={{ data: { fill: "#4768B8" } }}
+          />
+          <VictoryBar
+            data={objectStateData}
+            x="Assignment"
+            y="Fun"
+            style={{ data: { fill: "#B84768" } }}
           />
         </VictoryGroup>
         <VictoryAxis
           // tickValues specifies both the number of ticks and where
           // they are placed on the axis
-          tickValues={[1, 2, 3, 4]}
-          tickFormat={["Quarter 1", "Quarter 2", "Quarter 3", "Quarter 4"]}
-        />
-        <VictoryAxis
-          dependentAxis
-          ticketValues={[1, 2, 3, 4, 5]}
-          // tickFormat specifies how ticks should be displayed
-          tickFormat={[1, 2, 3, 4, 5]}
+          tickValues={[1, 2, 3, 4, 5]}
+          tickFormat={props.Assignment}
           style={{
-            ticketLabels: {
-              fontSize: 10,
+            tickLabels: {
+              fontSize: 5,
+              padding: 40,
+              writingMode: "vertical-lr",
             },
           }}
         />
-        <VictoryBar />
+        <VictoryAxis
+          dependentAxis
+          tickValues={[1, 2, 3, 4, 5]}
+          tickFormat={[1, 2, 3, 4, 5]}
+          style={{
+            tickLabels: {
+              fontSize: 15,
+              padding: 10,
+            },
+          }}
+        />
       </VictoryChart>
     </div>
   );
 }
 
 export default OverviewChart;
+
+/*<div>
+<VictoryChart>
+  <VictoryScatter
+    y={(data) => Math.sin(2 * Math.PI * data.x)}
+    samples={25}
+    size={5}
+    style={{ data: { fill: "tomato" }}}
+  />
+  <VictoryLine
+    style={{ data: { stroke: "orange" }}}
+    y={(data) => Math.sin(2 * Math.PI * data.x)}
+  />
+  <VictoryAxis/>
+  <VictoryAxis dependentAxis/>
+</VictoryChart>
+
+<VictoryChart>
+  <VictoryAxis/>
+  <VictoryAxis dependentAxis/>
+  <VictoryLine
+    style={{ data: { stroke: "orange" }}}
+    y={(data) => Math.sin(2 * Math.PI * data.x)}
+  />
+  <VictoryScatter
+    y={(data) => Math.sin(2 * Math.PI * data.x)}
+    samples={25}
+    size={5}
+    style={{ data: { fill: "tomato" }}}
+  />
+</VictoryChart>
+</div>*/

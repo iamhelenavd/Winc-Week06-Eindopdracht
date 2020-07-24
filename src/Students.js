@@ -12,7 +12,7 @@ function Students(props) {
       return data.find((item) => item.Name === Name);
     }
   );
-
+  console.log(newData);
   return (
     <div className="text">
       {newData.map((props) => (
