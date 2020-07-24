@@ -7,7 +7,6 @@ import {
   VictoryGroup,
   VictoryZoomContainer,
   VictoryLine,
-  VictoryLabel,
 } from "victory";
 
 function OverviewChart(props) {
@@ -83,6 +82,53 @@ function OverviewChart(props) {
             },
           }}
         />
+        <VictoryAxis
+          dependentAxis
+          tickValues={[1, 2, 3, 4, 5]}
+          tickFormat={[1, 2, 3, 4, 5]}
+          style={{
+            tickLabels: {
+              fontSize: 15,
+              padding: 10,
+            },
+          }}
+        />
+      </VictoryChart>
+      <h2>Overview Line Chart</h2>
+      <p> Average of Green=Fun Red=Difficulty</p>
+      <VictoryChart>
+        <VictoryLine
+          data={allStudentsRatingAverage}
+          x="Assignment"
+          y="Difficulty"
+          style={{
+            data: {
+              stroke: "#f7082e",
+            },
+          }}
+        />
+        <VictoryAxis
+          tickValues={[1, 2, 3, 4, 5]}
+          tickFormat={props.Assignment}
+          style={{
+            tickLabels: {
+              fontSize: 5,
+              padding: 10,
+              writingMode: "vertical-lr",
+            },
+          }}
+        />
+        <VictoryLine
+          data={allStudentsRatingAverage}
+          x="Assignment"
+          y="Fun"
+          style={{
+            data: {
+              stroke: "#02B875",
+            },
+          }}
+        />
+
         <VictoryAxis
           dependentAxis
           tickValues={[1, 2, 3, 4, 5]}

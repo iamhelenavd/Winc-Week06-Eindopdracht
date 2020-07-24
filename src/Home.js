@@ -4,7 +4,8 @@ const Home = () => {
   return (
     <div>
       <div>
-        <h1>example</h1>
+        <h1>Winc Academy Student Dashboard</h1>
+        <p> Average of Pink=Fun Blue=Difficulty</p>
         <OverviewChart />
       </div>
     </div>
