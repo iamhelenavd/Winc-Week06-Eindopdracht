@@ -71,7 +71,7 @@ function OverviewChart(props) {
             data={allStudentsRatingAverage}
             x="Assignment"
             y="Fun"
-            style={{ data: { fill: "#B84768" } }}
+            style={{ data: { fill: "#F5BA14" } }}
           />
         </VictoryGroup>
         <VictoryAxis
@@ -137,7 +137,7 @@ function OverviewChart(props) {
           y="Fun"
           style={{
             data: {
-              stroke: "#02B875",
+              stroke: "#F5BA14",
             },
           }}
         />

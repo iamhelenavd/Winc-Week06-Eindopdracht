@@ -6,6 +6,7 @@ function StudentDetail(props) {
   return (
     <div className="text">
       <h2>Student {props.match.params.id} </h2>
+      <p>Average of {props.match.params.id} Yellow=Fun Blue=Difficulty</p>
       <DataDetailData newNames={props.match.params.id} />
     </div>
   );
