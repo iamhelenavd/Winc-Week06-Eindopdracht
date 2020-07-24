@@ -9,7 +9,7 @@ import {
   VictoryLine,
 } from "victory";
 
-function DataDetailData(props) {
+function StudentChart(props) {
   const [data, setData] = useState(allData);
   // 1. All Assignments in Array
   const allAssignments = data.map((data) => data.Assignment);
@@ -23,13 +23,14 @@ function DataDetailData(props) {
     Difficulty: parseInt(object.Difficulty), // The parseInt() function parses a string argument and returns an integer of the specified radix
     Fun: parseInt(object.Fun),
   }));
-
   //console.log(objectStateData);
+
   // Students Individual for function StudentDetail.jsx
   const DataIndividualStudent = objectStateData.filter(
     (item) => item.Name === props.newNames
   );
   //console.log(DataIndividualStudent);
+
   // 3. Function result FUN and Difficulty
   const getAverageResult = (Assignment, typeOfResult) => {
     const filterData = objectStateData
@@ -48,7 +49,7 @@ function DataDetailData(props) {
     Fun: getAverageResult(Assignment, "Fun"),
   }));
 
-  /*   console.log(allStudentsRatingAverage); */
+  //   console.log(allStudentsRatingAverage);
 
   return (
     <div>
@@ -74,7 +75,7 @@ function DataDetailData(props) {
             data={DataIndividualStudent}
             x="Assignment"
             y="Fun"
-            style={{ data: { fill: "#B84768" } }}
+            style={{ data: { fill: "#f5ba13" } }}
           />
         </VictoryGroup>
         <VictoryAxis
@@ -101,7 +102,7 @@ function DataDetailData(props) {
         />
       </VictoryChart>
       <h2>Overview Line Chart</h2>
-      <p> Average of Green=Fun Red=Difficulty</p>
+      <p> Average all Students Yellow=Fun Red=Difficulty</p>
       <VictoryChart
         domainPadding={{ y: 10 }}
         containerComponent={
@@ -140,7 +141,7 @@ function DataDetailData(props) {
           y="Fun"
           style={{
             data: {
-              stroke: "#02B875",
+              stroke: "#f5ba13",
             },
           }}
         />
@@ -161,4 +162,4 @@ function DataDetailData(props) {
   );
 }
 
-export default DataDetailData;
+export default StudentChart;

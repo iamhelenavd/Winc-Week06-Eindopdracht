@@ -6,7 +6,8 @@ const Home = () => {
     <div>
       <div>
         <h1>Winc Academy Student Dashboard</h1>
-        <p> Average of Yellow=Fun Blue=Difficulty</p>
+        <br></br>
+        <p> Average all Students Yellow=Fun Blue=Difficulty</p>
         <OverviewChart />
       </div>
     </div>

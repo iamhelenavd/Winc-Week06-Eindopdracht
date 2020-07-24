@@ -23,9 +23,7 @@ function OverviewChart(props) {
     Difficulty: parseInt(object.Difficulty), // The parseInt() function parses a string argument and returns an integer of the specified radix
     Fun: parseInt(object.Fun),
   }));
-
   //console.log(objectStateData);
-  // allen naar de studenten
 
   // 3. Function result FUN and Difficulty
   const getAverageResult = (Assignment, typeOfResult) => {
@@ -45,7 +43,7 @@ function OverviewChart(props) {
     Fun: getAverageResult(Assignment, "Fun"),
   }));
 
-  /*   console.log(allStudentsRatingAverage); */
+  //  console.log(allStudentsRatingAverage);
 
   return (
     <div>

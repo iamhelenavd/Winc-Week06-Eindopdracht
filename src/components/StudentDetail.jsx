@@ -1,13 +1,13 @@
 import React from "react";
-import DataDetailData from "./DataDetailData";
+import StudentChart from "./StudentChart";
 
 function StudentDetail(props) {
-  console.log(props); // let op altijd console.log kijken wat component
+  console.log(props);
   return (
     <div className="text">
       <h2>Student {props.match.params.id} </h2>
-      <p>Average of {props.match.params.id} Yellow=Fun Blue=Difficulty</p>
-      <DataDetailData newNames={props.match.params.id} />
+      <p>Result {props.match.params.id} Yellow=Fun Blue=Difficulty</p>
+      <StudentChart newNames={props.match.params.id} />
     </div>
   );
 }
