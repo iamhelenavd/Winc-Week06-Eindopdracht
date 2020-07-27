@@ -45,6 +45,7 @@ function OverviewChart(props) {
 
   //  console.log(allStudentsRatingAverage);
 
+  //Chart
   return (
     <div>
       <VictoryChart
@@ -107,6 +108,8 @@ function OverviewChart(props) {
             zoomDimension="x"
           />
         }
+
+        //LineChart
       >
         <VictoryLine
           data={allStudentsRatingAverage}
