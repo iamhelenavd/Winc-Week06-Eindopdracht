@@ -48,9 +48,9 @@ function StudentChart(props) {
     Difficulty: getAverageResult(Assignment, "Difficulty"),
     Fun: getAverageResult(Assignment, "Fun"),
   }));
-
   //   console.log(allStudentsRatingAverage);
 
+  //Individual Chart
   return (
     <div>
       <VictoryChart
@@ -113,6 +113,8 @@ function StudentChart(props) {
             zoomDimension="x"
           />
         }
+
+        //All students average Line Chart
       >
         <VictoryLine
           data={allStudentsRatingAverage}
