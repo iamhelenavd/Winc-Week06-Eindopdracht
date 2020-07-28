@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
-import Home from "./Home";
+import Home from "./components/Home";
 import NavBar from "./components/NavBar";
-import Students from "./Students";
+import Students from "./components/Students";
 import StudentDetail from "./components/StudentDetail";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 

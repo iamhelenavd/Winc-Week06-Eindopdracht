@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import allData from "./dataMock/allData";
+import allData from "../dataMock/allData";
 import { Link } from "react-router-dom";
-import "./index.css";
+import "../index.css";
 
 function Students(props) {
   const [data, setData] = useState(allData);
