@@ -1,5 +1,5 @@
 import React from "react";
-import OverviewChart from "./components/OverviewChart";
+import OverviewChart from "./OverviewChart";
 
 const Home = () => {
   return (
